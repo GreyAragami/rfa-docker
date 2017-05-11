@@ -25,3 +25,9 @@ db:
     MYSQL_ROOT_PASSWORD: password
   volumes:
     - rfa-db:/var/lib/mysql
+    
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
