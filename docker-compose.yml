@@ -1,8 +1,12 @@
 # For customization options see: https://docs.docker.com/compose/yml/
 web:
   build: .
+  container_name: roomify_web
   links:
     - db:mysql
+  networks:
+    - frontend
+    - backend
   ports:
     - "32200:80"
   volumes:
@@ -11,6 +15,9 @@ web:
 
 db:
   image: mysql
+  container_name: roomify_db
+  networks:
+    - backend
   environment:
     MYSQL_DATABASE: drupal
     MYSQL_USER: drupal
